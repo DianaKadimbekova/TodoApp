@@ -1,21 +1,37 @@
-import React from 'react';
-import './App.scss';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 
-interface Props {
-  onClick: () => void;
-  children: React.ReactNode;
+import React from 'react';
+import { TodoProvider } from './TodoContext';
+import { TodoError } from './components/TodoError';
+import { TodoFooter } from './components/TodoFooter';
+import { TodoSection } from './components/TodoSection';
+import { TodoHeader } from './components/TodoHeader';
+
+export enum Filter {
+  All = 'All',
+  Active = 'Active',
+  Completed = 'Completed',
 }
 
-export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
-  <button type="button" onClick={onClick}>
-    {children}
-  </button>
-));
+interface AppProp {
+  todoId: number;
+}
 
-export const App: React.FC = () => {
+export const App: React.FC<AppProp> = () => {
   return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>TodoList</Provider>
-    </div>
+    <TodoProvider>
+      <div className="todoapp">
+        <h1 className="todoapp__title">todos</h1>
+
+        <div className="todoapp__content">
+          <TodoHeader />
+          <TodoSection />
+          <TodoFooter />
+        </div>
+
+        <TodoError />
+      </div>
+    </TodoProvider>
   );
 };
