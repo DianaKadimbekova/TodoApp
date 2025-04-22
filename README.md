@@ -15,6 +15,8 @@
 + **Prioritize Your Day** - Mark important tasks and focus on what matters most.
 + **Never Forget Anything** - Keep all your tasks in one place instead of relying on memory.
 + **Simple & Clean Design** - No clutter, just a smooth and user-friendly experience.
++ **Context** - Сentralizes all application state and logic, avoiding prop drilling and keeping components clean.
++ **LocalStorage** - Persists todos between sessions so tasks survive page refreshes.
 
 ## Getting Started
 1. Clone the repo
